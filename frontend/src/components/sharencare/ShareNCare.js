@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import io from "socket.io-client";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import './ShareNCare.css';
 
 let endPoint = "http://localhost:5000";
 let socket = io.connect(`${endPoint}`);
@@ -42,15 +43,15 @@ export const ShareNCare = () => {
   };
 
   return (
-    <div>
+    <div className="chat">
       {messages.map(msg => (
         <div>
           <p>{msg}</p>
         </div>
       ))}
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <TextField id="outlined-basic" label="Message" variant="outlined" value={message} name="message" onChange={e => onChange(e)} />
-        <Button variant="contained" color="primary" onClick={() => onClick()} style={{ marginLeft: '5%'}}>Send Message</Button>
+      <div className="input-form">
+        <TextField className="input" id="outlined-basic" label="Message" variant="outlined" value={message} name="message" onChange={e => onChange(e)} />
+        <Button variant="contained" color="primary" onClick={() => onClick()}>Send</Button>
       </div>
     </div>
   );

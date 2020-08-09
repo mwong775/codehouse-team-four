@@ -1,0 +1,15 @@
+.chat {
+    height: 100%;
+}
+.input-form {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    width: 80%;
+}
+
+.input {
+    position: absolute;
+    width: 80%;
+}
