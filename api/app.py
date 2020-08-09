@@ -11,6 +11,8 @@ socketIo = SocketIO(app, cors_allowed_origins="*")
 app.debug = True
 app.host = '0.0.0.0' # localhost?
 
+data = {}
+
 @socketIo.on("message")
 def handleMessage(msg):
   print(msg)
@@ -19,7 +21,7 @@ def handleMessage(msg):
 
 @app.route('/')
 def index():
-    return 'hello world'
+    return json.dumps({'message': 'hello world'}), 200
 
 if __name__ == '__main__':
   socketIo.run(app)

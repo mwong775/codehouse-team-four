@@ -1,7 +1,7 @@
 import React from "react";
 import ChatBot from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
-import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 
 function Chatbot(props) {
 

@@ -57,6 +57,14 @@ export const mainListItems = (
                 <ListItemText primary="Add Talent" />
             </ListItem>
         </Link>
+        <Link to="/jobmap" style={{ textDecoration: 'none' }}>
+            <ListItem button>
+                <ListItemIcon>
+                    <LayersIcon />
+                </ListItemIcon>
+                <ListItemText primary="Job Map" />
+            </ListItem>
+        </Link>
         <Link to="/sharencare" style={{ textDecoration: 'none' }}>
             <ListItem button>
                 <ListItemIcon>
@@ -65,12 +73,6 @@ export const mainListItems = (
                 <ListItemText primary="Share N' Care :D" />
             </ListItem>
         </Link>
-        <ListItem button>
-            <ListItemIcon>
-                <LayersIcon />
-            </ListItemIcon>
-            <ListItemText primary="Integrations" />
-        </ListItem>
     </div>
 );
 

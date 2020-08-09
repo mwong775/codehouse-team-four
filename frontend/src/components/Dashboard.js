@@ -22,6 +22,8 @@ import { SearchJob } from './searchjobs/SearchJobs';
 import { PostJobs } from './postjobs/PostJobs';
 import { SearchTalent } from './searchtalent/SearchTalent';
 import { PostTalent } from './posttalent/PostTalent';
+import Jobmap from './jobmap/Jobmap';
+
 import { ShareNCare } from './sharencare/ShareNCare';
 import Chatbot from "./chatbot/Chatbot";
 
@@ -88,11 +90,6 @@ const useStyles = makeStyles((theme) => ({
             width: theme.spacing(9),
         },
     },
-    content: {
-        flexGrow: 1,
-        height: '100vh',
-        overflow: 'auto',
-    },
     fixedHeight: {
         height: 240,
     },
@@ -158,10 +155,11 @@ export const Dashboard = () => {
                         <Route path='/postjobs' exact component={PostJobs} />
                         <Route path='/searchtalent' exact component={SearchTalent} />
                         <Route path='/posttalent' exact component={PostTalent} />
+                        <Route path='/jobmap' exact component={Jobmap} />
                         <Route path='/sharencare' exact component={ShareNCare} />
                         <Redirect to='/' />
                     </Switch>
-            <Chatbot />
+                <Chatbot />
                 </main>
             </Router>
         </div>
