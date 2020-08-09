@@ -10,7 +10,7 @@ let socket = io.connect(`${endPoint}`);
 // Functional component
 export const ShareNCare = () => {
   // create state using hooks
-  const [messages, setMessages] = useState(["Hello and Welcome"]);
+  const [messages, setMessages] = useState(["SHARE AND CARE"]);
   const [message, setMessage] = useState("");
 
   // componentDidUpdate method as hook (useEffect)
