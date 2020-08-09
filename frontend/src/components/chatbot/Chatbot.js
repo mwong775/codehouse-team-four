@@ -1,6 +1,22 @@
 import React from "react";
 import ChatBot from "react-simple-chatbot";
+import { ThemeProvider } from "styled-components";
+import Link from '@material-ui/core/Link';
+
 function Chatbot(props) {
+
+    const theme = {
+        background: "white",
+        fontFamily: "Arial, Helvetica, sans-serif",
+        headerBgColor: "#00B2B2",
+        headerFontColor: "#fff",
+        headerFontSize: "25px",
+        botBubbleColor: "#00B2B2",
+        botFontColor: "#fff",
+        userBubbleColor: "#fff",
+        userFontColor: "#4c4c4c"
+       };
+
     const config = {
         width: "300px",
         height: "400px",
@@ -10,31 +26,66 @@ function Chatbot(props) {
     const steps = [
         {
           id: "Greet",
-          message: "Hello, Welcome to our shop",
-          trigger: "Ask Name"
+          message: "Hello, Welcome to our website!",
+          trigger: "Ask How to Help"
         },
         {
-          id: "Ask Name",
-          message: "Please type your name?",
-          trigger: "Waiting user input for name"
+          id: "Ask How to Help",
+          message: "How may I help you?",
+          trigger: "Waiting User Input"
         },
         {
-          id: "Waiting user input for name",
+          id: "Waiting User Input",
           user: true,
-          trigger: "Asking options to eat"
+          trigger: "Ask Job Inquiry Type",
         },
         {
-          id: "Asking options to eat",
-          message: "Hi {previousValue}, Glad to know you !!",
-          trigger: "Done"
+            id: "Ask Job Inquiry Type",
+            message: "Are you seeking a job or looking to post a job?",
+            trigger: "Display Job Options",
+        },
+        {
+          id: "Display Job Options",
+          options: [
+            {
+              value: "job seeker",
+              label: "Seek a Job",
+              trigger: "Suggest Job Search"
+            },
+            { 
+              value: "job poster",
+              label: "Post a Job",
+              trigger: "Suggest Creating Job Post"
+            } 
+          ]
+        },
+        {
+            id: "Suggest Job Search",
+            component: (
+                <div>I suggest checking out the job search tab <Link href="/jobsearch">here</Link>!</div>
+              ),
+            asMessage: true,
+            trigger: "Done"
+        },
+        {
+            id: "Suggest Creating Job Post",
+            component: (
+                <div>I suggest creating a new job post over <a href="/jobsearch">here</a>!</div>
+              ),
+            asMessage: true,
+            trigger: "Done"
         },
         {
           id: "Done",
-          message: "Have a great day !!",
+          message: "Alrighty then. Have a great day !!",
           end: true
         }
      ];
-     
-    return <ChatBot steps={steps} {...config} />;
+
+    return (
+        <ThemeProvider theme={theme}>
+            <ChatBot steps={steps} {...config} />
+        </ThemeProvider>
+    );
 }
 export default Chatbot;
