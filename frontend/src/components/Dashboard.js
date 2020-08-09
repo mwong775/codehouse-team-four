@@ -20,6 +20,7 @@ import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-d
 import { Landing } from './landing/Landing';
 import { Jobsearch } from './jobsearch/Jobsearch';
 import { Jobhunters } from './jobhunters/Jobhunters';
+import { ShareNCare } from './sharencare/ShareNCare';
 
 
 const drawerWidth = 240;
@@ -159,7 +160,7 @@ export const Dashboard = () => {
                     <Route path='/' exact component={Landing} />
                     <Route path='/jobsearch' exact component={Jobsearch} />
                     <Route path='/jobhunters' exact component={Jobhunters} />
-
+                    <Route path='/sharencare' exact component={ShareNCare} />
                     <Redirect to='/'/>
                 </Switch>
             </Router>

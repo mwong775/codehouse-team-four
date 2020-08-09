@@ -37,12 +37,14 @@ export const mainListItems = (
                 <ListItemText primary="Job Hunters" />
             </ListItem>
         </Link>
-        <ListItem button>
-            <ListItemIcon>
-                <BarChartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Reports" />
-        </ListItem>
+        <Link to="/sharencare" style={{ textDecoration: 'none' }}>
+            <ListItem button>
+                <ListItemIcon>
+                    <BarChartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Share N' Care :D" />
+            </ListItem>
+        </Link>
         <ListItem button>
             <ListItemIcon>
                 <LayersIcon />
