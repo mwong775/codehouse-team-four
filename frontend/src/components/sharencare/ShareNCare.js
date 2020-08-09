@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Title } from './Title';
-import { MessageList } from './MessageList';
-import { SendMessageForm } from './SendMessageForm';
 import io from "socket.io-client";
 
 let endPoint = "http://localhost:5000";
 let socket = io.connect(`${endPoint}`);
-
-const DUMMY_DATA = [
-  {
-    senderId: "perborgen",
-    text: "who'll win?"
-  },
-  {
-    senderId: "janedoe",
-    text: "who'll win?"
-  }
-]
 
 // Functional component
 export const ShareNCare = () => {
@@ -28,7 +14,8 @@ export const ShareNCare = () => {
   // this will auto call when message length changes
   useEffect(() => {
     getMessages();
-
+  // line below disables warning
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages.length]);
 
   // Called when first time app render and every time message length changes
@@ -65,24 +52,3 @@ export const ShareNCare = () => {
     </div>
   );
 };
-
-// export default ShareNCare;
-
-// export class ShareNCare extends React.Component {
-//     constructor() {
-//         super()
-//         this.state = {
-//            messages: DUMMY_DATA // []
-//         }
-//       }
-
-//     render() {
-//         return(
-//             <div className="app">
-//               <Title />
-//               <MessageList messages={this.state.messages}/>
-//               <SendMessageForm />
-//             </div>
-//         );
-//     }
-// }
