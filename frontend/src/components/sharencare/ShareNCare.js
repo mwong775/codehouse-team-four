@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import io from "socket.io-client";
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 let endPoint = "http://localhost:5000";
 let socket = io.connect(`${endPoint}`);
@@ -14,8 +16,8 @@ export const ShareNCare = () => {
   // this will auto call when message length changes
   useEffect(() => {
     getMessages();
-  // line below disables warning
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // line below disables warning
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages.length]);
 
   // Called when first time app render and every time message length changes
@@ -27,7 +29,6 @@ export const ShareNCare = () => {
 
   const onChange = e => {
     setMessage(e.target.value);
-    console.log(messages);
   }
 
   const onClick = e => {
@@ -47,8 +48,10 @@ export const ShareNCare = () => {
           <p>{msg}</p>
         </div>
       ))}
-      <input value={message} name="message" onChange={e => onChange(e)}/>
-      <button onClick={() => onClick()}>Send Message</button>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <TextField id="outlined-basic" label="Message" variant="outlined" value={message} name="message" onChange={e => onChange(e)} />
+        <Button variant="contained" color="primary" onClick={() => onClick()} style={{ marginLeft: '5%'}}>Send Message</Button>
+      </div>
     </div>
   );
 };
