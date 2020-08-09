@@ -9,7 +9,7 @@ app.config['SECRET_KEY'] = 'secret!'
 socketIo = SocketIO(app, cors_allowed_origins="*")
 
 app.debug = True
-app.host = '0.0.0.0' # localhost?
+app.host = 'localhost' # localhost?
 
 @socketIo.on("message")
 def handleMessage(msg):
