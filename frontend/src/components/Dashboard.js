@@ -29,6 +29,12 @@ const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
     },
+    appBarSpacer: theme.mixins.toolbar,
+    content: {
+      flexGrow: 1,
+      height: '100vh',
+      overflow: 'auto',
+    },
     toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
     },
@@ -83,21 +89,10 @@ const useStyles = makeStyles((theme) => ({
             width: theme.spacing(9),
         },
     },
-    appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
         height: '100vh',
         overflow: 'auto',
-    },
-    container: {
-        paddingTop: theme.spacing(4),
-        paddingBottom: theme.spacing(4),
-    },
-    paper: {
-        padding: theme.spacing(2),
-        display: 'flex',
-        overflow: 'auto',
-        flexDirection: 'column',
     },
     fixedHeight: {
         height: 240,
@@ -131,7 +126,7 @@ export const Dashboard = () => {
                         </IconButton>
                         <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                             Dashboard
-          </Typography>
+                        </Typography>
                         <IconButton color="inherit">
                             <Badge badgeContent={4} color="secondary">
                                 <NotificationsIcon />
@@ -156,13 +151,16 @@ export const Dashboard = () => {
                     <Divider />
                     <List>{secondaryListItems}</List>
                 </Drawer>
-                <Switch>
-                    <Route path='/' exact component={Landing} />
-                    <Route path='/jobsearch' exact component={Jobsearch} />
-                    <Route path='/jobhunters' exact component={Jobhunters} />
-                    <Route path='/sharencare' exact component={ShareNCare} />
-                    <Redirect to='/'/>
-                </Switch>
+                <main className={classes.content}>
+                    <div className={classes.appBarSpacer} />
+                    <Switch>
+                        <Route path='/' exact component={Landing} />
+                        <Route path='/jobsearch' exact component={Jobsearch} />
+                        <Route path='/jobhunters' exact component={Jobhunters} />
+                        <Route path='/sharencare' exact component={ShareNCare} />
+                        <Redirect to='/' />
+                    </Switch>
+                </main>
             </Router>
         </div>
     );

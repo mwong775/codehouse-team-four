@@ -26,31 +26,6 @@ function Copyright() {
   }
    
 const useStyles = makeStyles((theme) => ({
-    root: {
-      display: 'flex',
-    },
-    toolbarIcon: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'flex-end',
-      padding: '0 8px',
-      ...theme.mixins.toolbar,
-    },
-    menuButton: {
-      marginRight: 36,
-    },
-    menuButtonHidden: {
-      display: 'none',
-    },
-    title: {
-      flexGrow: 1,
-    },
-    appBarSpacer: theme.mixins.toolbar,
-    content: {
-      flexGrow: 1,
-      height: '100vh',
-      overflow: 'auto',
-    },
     container: {
       paddingTop: theme.spacing(4),
       paddingBottom: theme.spacing(4),
@@ -72,8 +47,6 @@ export const Landing = () => {
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
-        <main className={classes.content}>
-            <div className={classes.appBarSpacer} />
             <Container maxWidth="lg" className={classes.container}>
                 <Grid container spacing={3}>
                     {/* Chart */}
@@ -99,6 +72,5 @@ export const Landing = () => {
                     <Copyright />
                 </Box>
             </Container>
-        </main>
     );
 } 
