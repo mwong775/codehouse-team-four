@@ -40,6 +40,7 @@ export const ShareNCare = () => {
 
   const onChange = e => {
     setMessage(e.target.value);
+    console.log(messages);
   }
 
   const onClick = e => {
@@ -54,11 +55,11 @@ export const ShareNCare = () => {
 
   return (
     <div>
-      {/* {messages.length > 0 && messages.map(msg => {
+      {messages.map(msg => (
         <div>
           <p>{msg}</p>
         </div>
-      })} */}
+      ))}
       <input value={message} name="message" onChange={e => onChange(e)}/>
       <button onClick={() => onClick()}>Send Message</button>
     </div>
