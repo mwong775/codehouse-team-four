@@ -31,11 +31,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     appBarSpacer: theme.mixins.toolbar,
-    content: {
-      flexGrow: 1,
-      height: '100vh',
-      overflow: 'auto',
-    },
+
     toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
     },
