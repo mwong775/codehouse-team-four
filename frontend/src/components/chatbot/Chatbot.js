@@ -62,7 +62,7 @@ function Chatbot(props) {
         {
             id: "Suggest Job Search",
             component: (
-                <div>I suggest checking out the job search tab <Link href="/jobsearch">here</Link>!</div>
+                <div>I suggest checking out the job search tab <Link href="/searchjobs">here</Link>!</div>
               ),
             asMessage: true,
             trigger: "Done"
@@ -70,7 +70,7 @@ function Chatbot(props) {
         {
             id: "Suggest Creating Job Post",
             component: (
-                <div>I suggest creating a new job post over <a href="/jobsearch">here</a>!</div>
+                <div>I suggest creating a new job post over <a href="/postjobs">here</a>!</div>
               ),
             asMessage: true,
             trigger: "Done"

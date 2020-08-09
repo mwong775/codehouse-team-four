@@ -18,8 +18,10 @@ import { mainListItems, secondaryListItems } from './listItems';
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import { Landing } from './landing/Landing';
-import { Jobsearch } from './jobsearch/Jobsearch';
-import { Jobhunters } from './jobhunters/Jobhunters';
+import { SearchJob } from './searchjobs/SearchJobs';
+import { PostJobs } from './postjobs/PostJobs';
+import { SearchTalent } from './searchtalent/SearchTalent';
+import { PostTalent } from './posttalent/PostTalent';
 import { ShareNCare } from './sharencare/ShareNCare';
 import Chatbot from "./chatbot/Chatbot";
 
@@ -152,8 +154,10 @@ export const Dashboard = () => {
                     <div className={classes.appBarSpacer} />
                     <Switch>
                         <Route path='/' exact component={Landing} />
-                        <Route path='/jobsearch' exact component={Jobsearch} />
-                        <Route path='/jobhunters' exact component={Jobhunters} />
+                        <Route path='/searchjobs' exact component={SearchJob} />
+                        <Route path='/postjobs' exact component={PostJobs} />
+                        <Route path='/searchtalent' exact component={SearchTalent} />
+                        <Route path='/posttalent' exact component={PostTalent} />
                         <Route path='/sharencare' exact component={ShareNCare} />
                         <Redirect to='/' />
                     </Switch>
