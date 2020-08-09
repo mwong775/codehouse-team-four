@@ -1,15 +1,19 @@
 import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
+import { Link } from 'react-router-dom';
+
+// Icons
+import ListItemIcon from '@material-ui/core/ListItemIcon';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
-import { Link } from 'react-router-dom';
+import PeopleIcon from '@material-ui/icons/People';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+import PostAddIcon from '@material-ui/icons/PostAdd';
+import WorkIcon from '@material-ui/icons/Work';
 
 export const mainListItems = (
     <div>
@@ -21,20 +25,36 @@ export const mainListItems = (
                 <ListItemText primary="Dashboard" />
             </ListItem>
         </Link>
-        <Link to="/jobsearch" style={{ textDecoration: 'none' }}>
+        <Link to="/searchjobs" style={{ textDecoration: 'none' }}>
             <ListItem button>
                 <ListItemIcon>
-                    <ShoppingCartIcon />
+                    <WorkIcon />
                 </ListItemIcon>
-                <ListItemText primary="Job Search" />
+                <ListItemText primary="Search Jobs" />
             </ListItem>
         </Link>
-        <Link to="/jobhunters" style={{ textDecoration: 'none' }}>
+        <Link to="/postjobs" style={{ textDecoration: 'none' }}>
+            <ListItem button>
+                <ListItemIcon>
+                    <PostAddIcon />
+                </ListItemIcon>
+                <ListItemText primary="Add job opening" />
+            </ListItem>
+        </Link>
+        <Link to="/searchtalent" style={{ textDecoration: 'none' }}>
             <ListItem button>
                 <ListItemIcon>
                     <PeopleIcon />
                 </ListItemIcon>
-                <ListItemText primary="Job Hunters" />
+                <ListItemText primary="Search Talent" />
+            </ListItem>
+        </Link>
+        <Link to="/posttalent" style={{ textDecoration: 'none' }}>
+            <ListItem button>
+                <ListItemIcon>
+                    <EmojiPeopleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Add Talent" />
             </ListItem>
         </Link>
         <Link to="/sharencare" style={{ textDecoration: 'none' }}>
