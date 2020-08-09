@@ -21,6 +21,7 @@ import { Landing } from './landing/Landing';
 import { Jobsearch } from './jobsearch/Jobsearch';
 import { Jobhunters } from './jobhunters/Jobhunters';
 import { ShareNCare } from './sharencare/ShareNCare';
+import Chatbot from "./chatbot/Chatbot";
 
 
 const drawerWidth = 240;
@@ -160,6 +161,7 @@ export const Dashboard = () => {
                         <Route path='/sharencare' exact component={ShareNCare} />
                         <Redirect to='/' />
                     </Switch>
+            <Chatbot />
                 </main>
             </Router>
         </div>
