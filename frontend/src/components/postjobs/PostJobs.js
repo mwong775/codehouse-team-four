@@ -1,83 +1,216 @@
 import React from 'react';
-import axios from 'axios';
+<<<<<<< HEAD
+=======
+import ReactDOM from 'react-dom';
+>>>>>>> 33220c5184ef41a0c0647fb3690fc54ee7f80dd4
+import { Form, Field } from 'react-final-form';
+import { TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
+import {
+  Typography,
+  Paper,
+  Link,
+  Grid,
+  Button,
+  CssBaseline,
+  RadioGroup,
+  FormLabel,
+  MenuItem,
+  FormGroup,
+  FormControl,
+  FormControlLabel,
+} from '@material-ui/core';
+import axios from 'axios'
 
-export class PostJobs extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            jobs: [],
-            job: {
-                company: "",
-                jobtype: "",
-            },
-            count: 0,
-        }
+const onSubmit = async values => {
+  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+  await sleep(300);
+  let job_lists = []
+  let form_values = values
+  if (values.hasOwnProperty('fulltime')) {
+    if (values['fulltime'] === true) {
+      delete form_values['fulltime']
+      job_lists.push('fulltime')
     }
-
-    componentDidMount() {
-        this.getJobs();
+  }
+  if (values.hasOwnProperty('parttime')) {
+    if (values['parttime'] === true) {
+      delete form_values['parttime']
+      job_lists.push('parttime')
     }
-
-    getJobs() {
-        const url = 'http://localhost:5000/jobs';
-        axios.get(url)
-            .then(response => {
-                // console.log('response', response.data.jobs);
-                this.setState({ 
-                    jobs: response.data.jobs,
-                    count: response.data.count });
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            })
-            .finally(function () {
-                // always executed
-            });
+  }
+  if (values.hasOwnProperty('shortterm')) {
+    if (values['shortterm'] === true) {
+      delete form_values['shortterm']
+      job_lists.push('shortterm')
     }
-
-    jobsList() {
-        return this.state.jobs.map(function (currentJob, i) {
-            return (
-                <p>{currentJob.company}, {currentJob.jobtype}</p>
-            );
-        })
+  }
+  if (values.hasOwnProperty('internship')) {
+    if (values['internship'] === true) {
+      delete form_values['internship']
+      job_lists.push('internship')
     }
+  }
+  form_values['jobtype'] = job_lists
+  console.log(form_values)
+  axios.post('http://localhost:5000/jobs', form_values)
+  .then(function (response) {
+    // handle success
+    console.log(response);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  window.alert(JSON.stringify(form_values, 0, 2));
+};
 
-    handleAddJob = (e) => {
-        e.preventDefault();
-        const job = {
-            company: "Duolingo",
-            jobtype: "Internship",
-        };
+const validate = values => {
+  const errors = {};
+  if (!values.company) {
+    errors.company = 'Required';
+  }
+  return errors;
+};
 
-        axios.post('http://localhost:5000/jobs', job)
-            .then(res => {
-                this.state.jobs.push(job);
-                // this.state.count++;
-                this.setState({
-                    jobs: this.state.jobs,
-                    count: this.state.count + 1,
-                })
-            })
-            .catch(err => console.log(err))
-            .finally(function () {
-            });
-        // this.setState({
-        //     count: this.state.count + 1
-        // });
-        // this.getJobs();
-
-    }
-
-    render() {
-        return (
-            <div>
-                <h1>PostJobs Component Works!</h1>
-                <button onClick={this.handleAddJob}>yolo</button>
-                {this.jobsList()}
-                <p>Job count: {this.state.count}</p>
-            </div>
-        );
-    }
+export function PostJobs() {
+  return (
+    <div style={{ padding: 16, margin: 'auto', maxWidth: 600 }}>
+      <CssBaseline />
+      <Typography variant="h4" align="center" component="h1" gutterBottom>
+        🏁 Add Job Listing
+      </Typography>
+      <Form
+        onSubmit={onSubmit}
+        initialValues={{  }}
+        validate={validate}
+        render={({ handleSubmit, reset, submitting, pristine, values }) => (
+          <form onSubmit={handleSubmit} noValidate>
+            <Paper style={{ padding: 16 }}>
+              <Grid container alignItems="flex-start" spacing={2}>
+                <Grid item xs={6}>
+                  <Field
+                    fullWidth
+                    required
+                    name="company"
+                    component={TextField}
+                    type="text"
+                    label="Company"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Field
+                    fullWidth
+                    name="location"
+                    component={TextField}
+                    multiline
+                    label="Job Location"
+                  />
+                </Grid>            
+                <Grid item xs={12}>
+                  <FormControlLabel
+                    label="Full-time"
+                    control={
+                      <Field
+                        name="fulltime"
+                        component={Checkbox}
+                        type="checkbox"
+                      />
+                    }
+                 />
+                 <FormControlLabel
+                    label="Part-time"
+                    control={
+                      <Field
+                        name="parttime"
+                        component={Checkbox}
+                        type="checkbox"
+                      />
+                    }
+                />
+                <FormControlLabel
+                    label="Short-term"
+                    control={
+                      <Field
+                        name="shortterm"
+                        component={Checkbox}
+                        type="checkbox"
+                      />
+                    }
+                />
+                <FormControlLabel
+                    label="Internship"
+                    control={
+                      <Field
+                        name="internship"
+                        component={Checkbox}
+                        type="checkbox"
+                      />
+                    }
+                  />          
+                </Grid>
+                <Grid item xs={12}>
+                  <Field
+                    name="jobdesc"
+                    fullWidth
+                    required
+                    component={TextField}
+                    type="text"
+                    label="Job Description"
+                  />
+                </Grid>         
+                <Grid item xs={12}>
+                  <Field
+                    name="joblink"
+                    fullWidth
+                    component={TextField}
+                    type="text"
+                    label="Job link"
+                  />
+                </Grid>        
+                <Grid item xs={12}>
+                  <Field
+                    fullWidth
+                    name="skills"
+                    component={TextField}
+                    multiline
+                    label="Skills"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <Field
+                    fullWidth
+                    name="tags"
+                    component={TextField}
+                    multiline
+                    label="Tags"
+                  />
+                </Grid>
+                <Grid item style={{ marginTop: 16 }}>
+                  <Button
+                    type="button"
+                    variant="contained"
+                    onClick={reset}
+                    disabled={submitting || pristine}
+                  >
+                    Reset
+                  </Button>
+                </Grid>
+                <Grid item style={{ marginTop: 16 }}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    type="submit"
+                    disabled={submitting}
+                  >
+                    Submit
+                  </Button>
+                </Grid>
+              </Grid>
+            </Paper>
+            <pre>{JSON.stringify(values, 0, 2)}</pre>
+          </form>
+        )}
+      />
+    </div>
+  );
 }
