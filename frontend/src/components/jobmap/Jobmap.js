@@ -16,7 +16,7 @@ export class Jobmap extends React.Component {
             },
             zoom: 15,
             geoError: null,
-            apiKey: '9L0w6Db1cMEBaDmsAi69ky2wIIkvAHPV',
+            apiKey: 'apikey',
             searchResults: [],
             selectedPlace: {
                 poi: {
@@ -52,7 +52,6 @@ export class Jobmap extends React.Component {
         let baseUrl = 'https://api.tomtom.com/search/2/categorySearch';
         let queryString = `limit=${limit}&lat=${lat}&lon=${long}&radius=${radius}&key=${this.state.apiKey}`;
         let response = await axios.get(`${baseUrl}/${query}.json?${queryString}`);
-        console.log('response', response);
         return response.data.results;
     }
 
