@@ -22,5 +22,5 @@ def index():
     return 'hello world'
 
 if __name__ == '__main__':
-  socketIo.run(app)
-  # app.run(host='0.0.0.0', port=8085, debug=True)
+  socketIo.run(app, host='0.0.0.0')
+  # app.run(host='0.0.0.0', debug=True)
