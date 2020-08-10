@@ -1,8 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-=======
-import ReactDOM from 'react-dom';
->>>>>>> 33220c5184ef41a0c0647fb3690fc54ee7f80dd4
 import { Form, Field } from 'react-final-form';
 import { TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
 import {
