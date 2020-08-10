@@ -34,7 +34,11 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     appBarSpacer: theme.mixins.toolbar,
-
+    content: {
+        flexGrow: 1,
+        height: '100vh',
+        overflow: 'auto',
+      },
     toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
     },
@@ -96,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const Dashboard = () => {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
     const handleDrawerOpen = () => {
         setOpen(true);
     };
