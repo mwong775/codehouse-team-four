@@ -51,7 +51,7 @@ export class SearchTalent extends React.Component {
 
     render() {
         return (
-            <div className="ag-theme-alpine" style={ {height: '8000px', width: 'auto'} }>
+            <div className="ag-theme-alpine" style={ {height: '8000px', width: '1500px'} }>
                 <h1>List of Job Seekers</h1>
                 <AgGridReact
                     columnDefs={this.state.columnDefs}
