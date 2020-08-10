@@ -220,7 +220,6 @@ export function PostTalent() {
                 </Grid>
               </Grid>
             </Paper>
-            <pre>{JSON.stringify(values, 0, 2)}</pre>
           </form>
         )}
       />

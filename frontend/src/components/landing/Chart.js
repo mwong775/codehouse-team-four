@@ -9,15 +9,14 @@ function createData(time, amount) {
 }
 
 const data = [
-  createData('00:00', 0),
-  createData('03:00', 300),
-  createData('06:00', 600),
-  createData('09:00', 800),
-  createData('12:00', 1500),
-  createData('15:00', 2000),
-  createData('18:00', 2400),
-  createData('21:00', 2400),
-  createData('24:00', undefined),
+  createData('October 2019', 3),
+  createData('January 2020', 3.6),
+  createData('February 2020', 3.5),
+  createData('March 2020', 4.4),
+  createData('April 2020', 14.7),
+  createData('May 2020', 15.0),
+  createData('June 2020', 13.3),
+  createData('July 2020', 11.2),
 ];
 
 export default function Chart() {
@@ -25,7 +24,7 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <Title>Today</Title>
+      <Title>Current unemployment rates in United States of America </Title>
       <ResponsiveContainer>
         <LineChart
           data={data}
@@ -43,7 +42,7 @@ export default function Chart() {
               position="left"
               style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
             >
-              Sales ($)
+              Unemployment Rate
             </Label>
           </YAxis>
           <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />

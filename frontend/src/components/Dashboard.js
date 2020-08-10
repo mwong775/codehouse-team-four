@@ -120,7 +120,7 @@ export const Dashboard = () => {
                             <MenuIcon />
                         </IconButton>
                         <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                            HARMONY
+                        BETTER TOGETHER
                         </Typography>
                         <IconButton color="inherit">
                                 <AccountCircleIcon />

@@ -9,16 +9,16 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from './Title';
 
 // Generate Order Data
-function createData(id, date, name, shipTo, paymentMethod, amount) {
-  return { id, date, name, shipTo, paymentMethod, amount };
+function createData(id, country, cases, lastcases, lastdeath, transmission) {
+  return { id, country, cases, lastcases, lastdeath, transmission };
 }
 
 const rows = [
-  createData(0, '16 Mar, 2019', 'Elvis Presley', 'Tupelo, MS', 'VISA ⠀•••• 3719', 312.44),
-  createData(1, '16 Mar, 2019', 'Paul McCartney', 'London, UK', 'VISA ⠀•••• 2574', 866.99),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
-  createData(3, '16 Mar, 2019', 'Michael Jackson', 'Gary, IN', 'AMEX ⠀•••• 2000', 654.39),
-  createData(4, '15 Mar, 2019', 'Bruce Springsteen', 'Long Branch, NJ', 'VISA ⠀•••• 5919', 212.79),
+  createData(0, 'USA', '4,951,851', '53,893', '5719', 'Community transmission'),
+  createData(1, 'Brazil', '3,012,412', '49,970', '1,059', 'Community transmission'),
+  createData(2, 'India', '2,215,074', '62,064', '905', 'Cluster of cases'),
+  createData(3, 'Russia', '892,654', '5,118', '1007', 'Cluster of cases'),
+  createData(4, 'South Africa', '559859', '6,671', '70', 'Community transmission'),
 ];
 
 function preventDefault(event) {
@@ -35,32 +35,32 @@ export default function Orders() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>Situation by Country,Territory & Area</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Country</TableCell>
+            <TableCell>Cases-cumulative</TableCell>
+            <TableCell>Cases-reported in last 24 hours</TableCell>
+            <TableCell>Deaths-reported in last 24 hours</TableCell>
+            <TableCell align="right">Transmission Classification</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
-              <TableCell>{row.date}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.shipTo}</TableCell>
-              <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
+              <TableCell>{row.country}</TableCell>
+              <TableCell>{row.cases}</TableCell>
+              <TableCell>{row.lastcases}</TableCell>
+              <TableCell>{row.lastdeath}</TableCell>
+              <TableCell align="right">{row.transmission}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
       <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>
-          See more orders
+          See more information
         </Link>
       </div>
     </React.Fragment>
