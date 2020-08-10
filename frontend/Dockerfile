@@ -17,6 +17,6 @@ RUN npm install
 COPY . .
 
 # self-note: binds app to port for docker daemon
-EXPOSE 8080
+EXPOSE 3000
 
 CMD [ "npm", "start" ]
