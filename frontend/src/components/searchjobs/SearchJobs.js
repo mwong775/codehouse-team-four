@@ -30,8 +30,18 @@ export class SearchJob extends React.Component {
         this.getJobs();
     }
 
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+    }
+
+    componentDidUpdate() {
+        this.gridApi.sizeColumnsToFit();
+    }
+
     getJobs() {
-        const url = 'http://localhost:5000/jobs';
+        const url = 'http://localhost:5001/jobs'; // `${process.env.REACT_APP_HOST_IP_ADDRESS}/jobs`; //'http://localhost:5001/jobs';
+        console.log('searchJobs endpoint', url);
         axios.get(url)
             .then(response => {
                 // console.log('response', response.data.jobs);
@@ -55,7 +65,8 @@ export class SearchJob extends React.Component {
                 <h1>List of Available Jobs</h1>
                 <AgGridReact
                     columnDefs={this.state.columnDefs}
-                    rowData={this.state.rowData}>
+                    rowData={this.state.rowData}
+                    onGridReady={this.onGridReady}>
                 </AgGridReact>
             </div>
         );

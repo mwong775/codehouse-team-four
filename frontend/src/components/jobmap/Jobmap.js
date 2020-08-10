@@ -17,7 +17,7 @@ export class Jobmap extends React.Component {
         super(props);
         this.state = {
             geoLocation: {
-                latitude: 37.763659, 
+                latitude: 37.763659,
                 longitude: -122.485595,
             },
             geoError: null,
@@ -40,9 +40,11 @@ export class Jobmap extends React.Component {
     async onSearchChange(query) {
         if (query.length > 0) {
             let results = (await this.getNearbyPlaces(query, this.state.geoLocation.latitude, this.state.geoLocation.longitude));
-            this.setState({
-                searchResults: results
-            });
+            if (results) {
+                this.setState({
+                    searchResults: results
+                });
+            }
         }
     }
 
@@ -50,7 +52,14 @@ export class Jobmap extends React.Component {
         // let baseUrl = 'https://api.tomtom.com/search/2/categorySearch';
         // let queryString = `limit=${limit}&lat=${lat}&lon=${long}&radius=${radius}&key=${this.state.apiKey}`;
         // let response = await axios.get(`${baseUrl}/${query}.json?${queryString}`);
-        let response = await axios.get('http://localhost:5000/mapsearch');
+        let response = await axios.get('http://localhost:5002/mapsearch') // `${process.env.REACT_APP_HOST_IP_ADDRESS}/mapsearch`
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });;
         return response.data.results;
     }
 
@@ -100,20 +109,20 @@ export class Jobmap extends React.Component {
                     <Marker position={[this.state.geoLocation.latitude, this.state.geoLocation.longitude]}>
                         <Popup>
                             <h3>Current Location</h3>
-                     </Popup>
+                        </Popup>
                     </Marker>
                     {data.map((places) => {
                         return (
                             <Marker position={places.coordinates}>
-                            <Popup>
-                                <h3>{places.name}</h3> {places.position}
-                         </Popup>
-                        </Marker>
+                                <Popup>
+                                    <h3>{places.name}</h3> {places.position}
+                                </Popup>
+                            </Marker>
                         )
                     })}
                 </Map>
             </div>
         );
-        
+
     }
 }

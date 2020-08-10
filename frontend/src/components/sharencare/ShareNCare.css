@@ -1,12 +1,12 @@
 .chat {
     height: 100%;
+    padding: 10%;
 }
 .input-form {
     display: flex;
     position: absolute;
     bottom: 0;
-    justify-content: center;
-    width: 70%;
+    margin: auto 0;
 }
 
 .input {

@@ -10,28 +10,39 @@ export class SearchTalent extends React.Component {
         super(props);
         this.state = {
             columnDefs: [{
-                headerName: "FirstName", field: "firstName", sortable: true, filter: true
+                headerName: "First Name", field: "firstName", sortable: true, filter: true
                 }, {
-                headerName: "LastName", field: "lastName", sortable: true, filter: true
+                headerName: "Last Name", field: "lastName", sortable: true, filter: true
                 }, {
                 headerName: "Email", field: "email", sortable: true, filter: true
                 }, {
                 headerName: "Location", field: "location", sortable: true, filter: true
                 }, {
-                headerName: "JobType", field: "jobtype", sortable: true, filter: true
+                headerName: "Job Type", field: "jobtype", sortable: true, filter: true
                 },{
-                headerName: "ContactDetails", field: "contactdetails", sortable: true, filter: true
+                headerName: "Contact Details", field: "contactdetails", sortable: true, filter: true
             }],
             rowData: []
         }
     }
 
     componentDidMount() {
-        this.getJobs();
+        this.getTalent();
     }
 
-    getJobs() {
-        const url = 'http://localhost:5000/talent';
+    onGridReady = params => {
+        this.gridApi = params.api;
+        this.gridColumnApi = params.columnApi;
+    }
+
+    componentDidUpdate() {
+        this.gridApi.sizeColumnsToFit();
+    }
+
+
+    getTalent() {
+        const url = 'http://localhost:5003/talent'; // `${process.env.REACT_APP_HOST_IP_ADDRESS}/talent`
+        console.log('searchTalent endpoint', url);
         axios.get(url)
             .then(response => {
                 // console.log('response', response.data.jobs);
@@ -55,7 +66,8 @@ export class SearchTalent extends React.Component {
                 <h1>List of Job Seekers</h1>
                 <AgGridReact
                     columnDefs={this.state.columnDefs}
-                    rowData={this.state.rowData}>
+                    rowData={this.state.rowData}
+                    onGridReady={this.onGridReady}>
                 </AgGridReact>
             </div>
         );
