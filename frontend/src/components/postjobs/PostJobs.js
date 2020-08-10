@@ -54,10 +54,10 @@ export class PostJobs extends React.Component {
         axios.post('http://localhost:5000/jobs', job)
             .then(res => {
                 this.state.jobs.push(job);
-                this.state.count++;
+                // this.state.count++;
                 this.setState({
                     jobs: this.state.jobs,
-                    count: this.state.count,
+                    count: this.state.count + 1,
                 })
             })
             .catch(err => console.log(err))

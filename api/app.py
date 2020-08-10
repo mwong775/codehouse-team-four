@@ -28,7 +28,8 @@ def index():
 @app.route('/jobs', methods=['GET', 'POST'])
 def handle_jobs():
     # json should be None for GET request, not None for POST
-    print(request.json)
+    # print(request.json)
+    
     if request.method == 'GET':
       # respond with list of all jobs
       return json.dumps({'message': 'Retrieved successfully', 'jobs': data, 'count': len(data) }), 200
@@ -49,7 +50,7 @@ def handle_mapsearch():
   radius = 10000
 
   queryString = 'limit=5&lat=37.763659&lon=-122.485595&radius=10000&key=9L0w6Db1cMEBaDmsAi69ky2wIIkvAHPV'; #`limit=${limit}&lat=${lat}&lon=${long}&radius=${radius}&key=${this.state.apiKey}`
-  forward_url = baseUrl + '/pizza.json?' + queryString #`${baseUrl}/${query}.json?${queryString}`
+  forward_url = baseUrl + '/pizza.json?' + queryString # `${baseUrl}/${query}.json?${queryString}`
   response = requests.get(forward_url)
   return response.content, response.status_code
 

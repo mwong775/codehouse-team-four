@@ -16,21 +16,12 @@ export class Jobmap extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            map: {},
             geoLocation: {
                 latitude: 37.763659, 
                 longitude: -122.485595,
             },
-            zoom: 15,
             geoError: null,
-            apiKey: 'apikey',
             searchResults: [],
-            selectedPlace: {
-                poi: {
-                    name: '',
-                    classifications: [],
-                },
-            },
         };
     }
 
