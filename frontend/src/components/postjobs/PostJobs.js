@@ -1,18 +1,12 @@
 import React from 'react';
 import { Form, Field } from 'react-final-form';
-import { TextField, Checkbox, Radio, Select } from 'final-form-material-ui';
+import { TextField, Checkbox } from 'final-form-material-ui';
 import {
   Typography,
   Paper,
-  Link,
   Grid,
   Button,
   CssBaseline,
-  RadioGroup,
-  FormLabel,
-  MenuItem,
-  FormGroup,
-  FormControl,
   FormControlLabel,
 } from '@material-ui/core';
 import axios from 'axios'
@@ -73,7 +67,7 @@ export function PostJobs() {
     <div style={{ padding: 16, margin: 'auto', maxWidth: 600 }}>
       <CssBaseline />
       <Typography variant="h4" align="center" component="h1" gutterBottom>
-        🏁 Add Job Listing
+        <span role="img" aria-label="jsx-a11y/accessible-emoji">🏁</span> Add Job Listing
       </Typography>
       <Form
         onSubmit={onSubmit}
