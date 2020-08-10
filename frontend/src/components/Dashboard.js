@@ -9,10 +9,9 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { mainListItems, secondaryListItems } from './listItems';
 
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
@@ -124,9 +123,7 @@ export const Dashboard = () => {
                             HARMONY
                         </Typography>
                         <IconButton color="inherit">
-                            <Badge badgeContent={4} color="secondary">
-                                <NotificationsIcon />
-                            </Badge>
+                                <AccountCircleIcon />
                         </IconButton>
                     </Toolbar>
                 </AppBar>
