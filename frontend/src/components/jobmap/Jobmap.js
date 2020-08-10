@@ -16,21 +16,12 @@ export class Jobmap extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            map: {},
             geoLocation: {
                 latitude: 37.763659, 
                 longitude: -122.485595,
             },
-            zoom: 15,
             geoError: null,
-            apiKey: 'apikey',
             searchResults: [],
-            selectedPlace: {
-                poi: {
-                    name: '',
-                    classifications: [],
-                },
-            },
         };
     }
 
@@ -56,9 +47,10 @@ export class Jobmap extends React.Component {
     }
 
     async getNearbyPlaces(query, lat, long, limit = 5, radius = 10000) {
-        let baseUrl = 'https://api.tomtom.com/search/2/categorySearch';
-        let queryString = `limit=${limit}&lat=${lat}&lon=${long}&radius=${radius}&key=${this.state.apiKey}`;
-        let response = await axios.get(`${baseUrl}/${query}.json?${queryString}`);
+        // let baseUrl = 'https://api.tomtom.com/search/2/categorySearch';
+        // let queryString = `limit=${limit}&lat=${lat}&lon=${long}&radius=${radius}&key=${this.state.apiKey}`;
+        // let response = await axios.get(`${baseUrl}/${query}.json?${queryString}`);
+        let response = await axios.get('http://localhost:5000/mapsearch');
         return response.data.results;
     }
 
