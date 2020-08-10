@@ -1,16 +1,21 @@
 .chat {
     height: 100%;
-    padding: 10%;
+    padding: 4%;
 }
 .input-form {
     display: flex;
     position: absolute;
     bottom: 0;
+    right: 150px;
+    width: 70%;
     margin: auto 0;
     width:80%;
 }
 
-.input {
-    position: absolute;
-    width: 80%;
+.messages {
+    display: flex; 
+    flex-direction: column;
+    text-align: left;
+    margin: 0;
+    padding: 0;   
 }

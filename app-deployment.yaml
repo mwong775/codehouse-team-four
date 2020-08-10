@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: chat
 spec:
-  replicas: 2 # tells deployment to run 1 pods matching the template
+  replicas: 4 # tells deployment to run 1 pods matching the template
   selector:
     matchLabels:
       component: chat
@@ -43,7 +43,7 @@ kind: Deployment
 metadata:
   name: mapsearch
 spec:
-  replicas: 2 # tells deployment to run 1 pods matching the template
+  replicas: 1 # tells deployment to run 1 pods matching the template
   selector:
     matchLabels:
       component: mapsearch
@@ -83,7 +83,7 @@ kind: Deployment
 metadata:
   name: react
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: react

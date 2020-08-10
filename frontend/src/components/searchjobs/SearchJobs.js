@@ -1,7 +1,6 @@
 import React from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import axios from 'axios';
-
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
@@ -61,7 +60,7 @@ export class SearchJob extends React.Component {
 
     render() {
         return (
-            <div className="ag-theme-alpine" style={ {height: '8000px', width: '1500px'} }>
+            <div className="ag-theme-alpine" style={{height: '400px', width: '80%', margin: 'auto'}}>
                 <h1>List of Available Jobs</h1>
                 <AgGridReact
                     columnDefs={this.state.columnDefs}

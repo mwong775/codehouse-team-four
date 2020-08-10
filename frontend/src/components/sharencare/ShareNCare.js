@@ -20,9 +20,13 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
   },
-  appBar: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginRight: drawerWidth,
+  input: {
+    width: '80%',
+    marginLeft: 0,
+
+  },
+  button: {
+    width: '12%',
   },
   drawer: {
     width: drawerWidth,
@@ -48,7 +52,7 @@ console.log('chat endpoint', endPoint);
 // Functional component
 export const ShareNCare = () => {
   // create state using hooks
-  const [messages, setMessages] = useState(["SHARE AND CARE"]);
+  const [messages, setMessages] = useState([""]);
   const [message, setMessage] = useState("");
 
   // componentDidUpdate method as hook (useEffect)
@@ -85,16 +89,16 @@ export const ShareNCare = () => {
   return (
     <>
       <main className="chat">
+        <div className="messages">
         {messages.map(msg => (
-          <div>
             <p>{msg}</p>
-          </div>
         ))}
-        <div className="input-form">
-          <TextField className="input" id="outlined-basic" label="Send A Message" variant="outlined" value={message} name="message" onChange={e => onChange(e)} />
-          <Button variant="contained" color="primary" onClick={() => onClick()}>Send</Button>
         </div>
       </main>
+        <div className="input-form">
+          <TextField className={classes.input} id="outlined-basic" label="Send A Message!" variant="outlined" value={message} name="message" onChange={e => onChange(e)} />
+          <Button className={classes.button} variant="contained" color="primary" onClick={() => onClick()}>Send</Button>
+        </div>
       <Drawer
         className={classes.drawer}
         variant="permanent"

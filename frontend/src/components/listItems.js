@@ -12,6 +12,7 @@ import PostAddIcon from '@material-ui/icons/PostAdd';
 import WorkIcon from '@material-ui/icons/Work';
 import MapIcon from '@material-ui/icons/Map';
 import ForumIcon from '@material-ui/icons/Forum';
+import Divider from '@material-ui/core/Divider';
 
 export const mainListItems = (
     <div>
@@ -22,6 +23,7 @@ export const mainListItems = (
                 </ListItemIcon>
                 <ListItemText primary="Dashboard" />
             </ListItem>
+            <Divider/>
         </Link>
         <Link to="/searchjobs" style={{ textDecoration: 'none' }}>
             <ListItem button>
@@ -39,6 +41,7 @@ export const mainListItems = (
                 <ListItemText primary="Add job opening" />
             </ListItem>
         </Link>
+        <Divider/>
         <Link to="/searchtalent" style={{ textDecoration: 'none' }}>
             <ListItem button>
                 <ListItemIcon>
@@ -55,6 +58,7 @@ export const mainListItems = (
                 <ListItemText primary="Add Talent" />
             </ListItem>
         </Link>
+        <Divider/>
         <Link to="/jobmap" style={{ textDecoration: 'none' }}>
             <ListItem button>
                 <ListItemIcon>
