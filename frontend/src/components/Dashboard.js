@@ -22,7 +22,7 @@ import { SearchJob } from './searchjobs/SearchJobs';
 import { PostJobs } from './postjobs/PostJobs';
 import { SearchTalent } from './searchtalent/SearchTalent';
 import { PostTalent } from './posttalent/PostTalent';
-import Jobmap from './jobmap/Jobmap';
+import { Jobmap } from './jobmap/Jobmap';
 
 import { ShareNCare } from './sharencare/ShareNCare';
 import Chatbot from "./chatbot/Chatbot";
