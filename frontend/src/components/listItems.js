@@ -8,12 +8,13 @@ import { Link } from 'react-router-dom';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import PeopleIcon from '@material-ui/icons/People';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import PostAddIcon from '@material-ui/icons/PostAdd';
 import WorkIcon from '@material-ui/icons/Work';
+import MapIcon from '@material-ui/icons/Map';
+import ForumIcon from '@material-ui/icons/Forum';
 
 export const mainListItems = (
     <div>
@@ -60,17 +61,9 @@ export const mainListItems = (
         <Link to="/jobmap" style={{ textDecoration: 'none' }}>
             <ListItem button>
                 <ListItemIcon>
-                    <LayersIcon />
+                    <MapIcon />
                 </ListItemIcon>
                 <ListItemText primary="Job Map" />
-            </ListItem>
-        </Link>
-        <Link to="/sharencare" style={{ textDecoration: 'none' }}>
-            <ListItem button>
-                <ListItemIcon>
-                    <BarChartIcon />
-                </ListItemIcon>
-                <ListItemText primary="Share N' Care :D" />
             </ListItem>
         </Link>
     </div>
@@ -78,24 +71,13 @@ export const mainListItems = (
 
 export const secondaryListItems = (
     <div>
-        <ListSubheader inset>Saved reports</ListSubheader>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Current month" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Last quarter" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <AssignmentIcon />
-            </ListItemIcon>
-            <ListItemText primary="Year-end sale" />
-        </ListItem>
+        <Link to="/sharencare" style={{ textDecoration: 'none' }}>
+            <ListItem button>
+                <ListItemIcon>
+                    <ForumIcon />
+                </ListItemIcon>
+                <ListItemText primary="Share N' Care :D" />
+            </ListItem>
+        </Link>
     </div>
 );
