@@ -21,9 +21,13 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   input: {
-    width: '80%',
-    marginLeft: 0,
-
+    width: '72%',
+    marginLeft: '8%',
+    zIndex: theme.zIndex.drawer + 1,
+    transition: theme.transitions.create(['width', 'margin'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+    }),
   },
   button: {
     width: '12%',
