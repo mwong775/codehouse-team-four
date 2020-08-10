@@ -1,5 +1,5 @@
 # self-note: gets node image from dockerhub i think
-FROM node:13.12.0-alpine
+FROM node:alpine
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -17,6 +17,6 @@ RUN npm install
 COPY . .
 
 # self-note: binds app to port for docker daemon
-EXPOSE 8080
+EXPOSE 3000
 
 CMD [ "npm", "start" ]

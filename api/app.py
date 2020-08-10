@@ -9,7 +9,9 @@ app.config['SECRET_KEY'] = 'secret!'
 socketIo = SocketIO(app, cors_allowed_origins="*")
 
 app.debug = True
-app.host = '0.0.0.0' # localhost?
+app.host = 'localhost' # localhost?
+
+data = {}
 
 @socketIo.on("message")
 def handleMessage(msg):
@@ -19,8 +21,8 @@ def handleMessage(msg):
 
 @app.route('/')
 def index():
-    return 'hello world'
+    return json.dumps({'message': 'hello world'}), 200
 
 if __name__ == '__main__':
-  socketIo.run(app)
-  # app.run(host='0.0.0.0', port=8085, debug=True)
+  socketIo.run(app, host='0.0.0.0')
+  # app.run(host='0.0.0.0', debug=True)

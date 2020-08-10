@@ -9,17 +9,20 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { mainListItems, secondaryListItems } from './listItems';
 
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 import { Landing } from './landing/Landing';
-import { Jobsearch } from './jobsearch/Jobsearch';
-import { Jobhunters } from './jobhunters/Jobhunters';
+import { SearchJob } from './searchjobs/SearchJobs';
+import { PostJobs } from './postjobs/PostJobs';
+import { SearchTalent } from './searchtalent/SearchTalent';
+import { PostTalent } from './posttalent/PostTalent';
+import { Jobmap } from './jobmap/Jobmap';
+
 import { ShareNCare } from './sharencare/ShareNCare';
 import Chatbot from "./chatbot/Chatbot";
 
@@ -31,11 +34,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
     },
     appBarSpacer: theme.mixins.toolbar,
-    content: {
-      flexGrow: 1,
-      height: '100vh',
-      overflow: 'auto',
-    },
+
     toolbar: {
         paddingRight: 24, // keep right padding when drawer closed
     },
@@ -90,11 +89,6 @@ const useStyles = makeStyles((theme) => ({
             width: theme.spacing(9),
         },
     },
-    content: {
-        flexGrow: 1,
-        height: '100vh',
-        overflow: 'auto',
-    },
     fixedHeight: {
         height: 240,
     },
@@ -129,9 +123,7 @@ export const Dashboard = () => {
                             HARMONY
                         </Typography>
                         <IconButton color="inherit">
-                            <Badge badgeContent={4} color="secondary">
-                                <NotificationsIcon />
-                            </Badge>
+                                <AccountCircleIcon />
                         </IconButton>
                     </Toolbar>
                 </AppBar>
@@ -156,12 +148,15 @@ export const Dashboard = () => {
                     <div className={classes.appBarSpacer} />
                     <Switch>
                         <Route path='/' exact component={Landing} />
-                        <Route path='/jobsearch' exact component={Jobsearch} />
-                        <Route path='/jobhunters' exact component={Jobhunters} />
+                        <Route path='/searchjobs' exact component={SearchJob} />
+                        <Route path='/postjobs' exact component={PostJobs} />
+                        <Route path='/searchtalent' exact component={SearchTalent} />
+                        <Route path='/posttalent' exact component={PostTalent} />
+                        <Route path='/jobmap' exact component={Jobmap} />
                         <Route path='/sharencare' exact component={ShareNCare} />
                         <Redirect to='/' />
                     </Switch>
-            <Chatbot />
+                <Chatbot />
                 </main>
             </Router>
         </div>

@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  flaskapp:
+    build: ./api
+    expose:
+      - 5000
+    ports:
+      - 5000:5000
+    volumes:
+      - ./api:/usr/src/app
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_DEBUG=1
+
+  reactapp:
+    build: ./frontend
+    expose:
+      - 3000
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/src:/usr/src/app/src
+      - ./frontend/public:/usr/src/app/public
+    links:
+      - "flaskapp:flaskapp"
