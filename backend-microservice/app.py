@@ -159,11 +159,13 @@ talent_data = [
 }
 ]
 
+
 @socketIo.on("message")
 def handleMessage(msg):
   print(msg)
   send(msg, broadcast=True)
   return None
+
 
 @app.route('/')
 def index():
@@ -201,6 +203,7 @@ def handle_mapsearch():
   forward_url = baseUrl + '/pizza.json?' + queryString # `${baseUrl}/${query}.json?${queryString}`
   response = requests.get(forward_url)
   return response.content, response.status_code
+
 
 
 if __name__ == '__main__':
