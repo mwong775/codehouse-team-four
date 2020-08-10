@@ -67,7 +67,6 @@ jobs_data = [
   "jobtype": [
     "fulltime",
     "shortterm",
-    ""
   ]
 },
 {
