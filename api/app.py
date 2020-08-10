@@ -13,15 +13,18 @@ app.host = 'localhost' # localhost?
 
 data = {}
 
+
 @socketIo.on("message")
 def handleMessage(msg):
   print(msg)
   send(msg, broadcast=True)
   return None
 
+
 @app.route('/')
 def index():
     return json.dumps({'message': 'hello world'}), 200
+
 
 if __name__ == '__main__':
   socketIo.run(app, host='0.0.0.0')
