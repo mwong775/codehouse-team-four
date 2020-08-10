@@ -9,7 +9,16 @@ import {
   CssBaseline,
   FormControlLabel,
 } from '@material-ui/core';
-import axios from 'axios'
+import Dialog from '@material-ui/core/Dialog';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import axios from 'axios';
+import { withStyles } from '@material-ui/core/styles';
+
+const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiDialogContent);
 
 const onSubmit = async values => {
   const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
@@ -43,15 +52,14 @@ const onSubmit = async values => {
   form_values['jobtype'] = job_lists
   console.log(form_values)
   axios.post('http://localhost:5001/jobs', form_values) // `${process.env.REACT_APP_HOST_IP_ADDRESS}/jobs`
-  .then(function (response) {
-    // handle success
-    console.log(response);
-  })
-  .catch(function (error) {
-    // handle error
-    console.log(error);
-  })
-  window.alert(JSON.stringify(form_values, 0, 2));
+    .then(function (response) {
+      // handle success
+      console.log(response);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
 };
 
 const validate = values => {
@@ -63,6 +71,15 @@ const validate = values => {
 };
 
 export function PostJobs() {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div style={{ padding: 16, margin: 'auto', maxWidth: 600 }}>
       <CssBaseline />
@@ -71,7 +88,7 @@ export function PostJobs() {
       </Typography>
       <Form
         onSubmit={onSubmit}
-        initialValues={{  }}
+        initialValues={{}}
         validate={validate}
         render={({ handleSubmit, reset, submitting, pristine, values }) => (
           <form onSubmit={handleSubmit} noValidate>
@@ -95,7 +112,7 @@ export function PostJobs() {
                     multiline
                     label="Job Location"
                   />
-                </Grid>            
+                </Grid>
                 <Grid item xs={12}>
                   <FormControlLabel
                     label="Full-time"
@@ -106,8 +123,8 @@ export function PostJobs() {
                         type="checkbox"
                       />
                     }
-                 />
-                 <FormControlLabel
+                  />
+                  <FormControlLabel
                     label="Part-time"
                     control={
                       <Field
@@ -116,8 +133,8 @@ export function PostJobs() {
                         type="checkbox"
                       />
                     }
-                />
-                <FormControlLabel
+                  />
+                  <FormControlLabel
                     label="Short-term"
                     control={
                       <Field
@@ -126,8 +143,8 @@ export function PostJobs() {
                         type="checkbox"
                       />
                     }
-                />
-                <FormControlLabel
+                  />
+                  <FormControlLabel
                     label="Internship"
                     control={
                       <Field
@@ -136,7 +153,7 @@ export function PostJobs() {
                         type="checkbox"
                       />
                     }
-                  />          
+                  />
                 </Grid>
                 <Grid item xs={12}>
                   <Field
@@ -147,7 +164,7 @@ export function PostJobs() {
                     type="text"
                     label="Job Description"
                   />
-                </Grid>         
+                </Grid>
                 <Grid item xs={12}>
                   <Field
                     name="joblink"
@@ -156,7 +173,7 @@ export function PostJobs() {
                     type="text"
                     label="Job link"
                   />
-                </Grid>        
+                </Grid>
                 <Grid item xs={12}>
                   <Field
                     fullWidth
@@ -191,13 +208,19 @@ export function PostJobs() {
                     color="primary"
                     type="submit"
                     disabled={submitting}
+                    onClick={handleClickOpen}
                   >
                     Submit
                   </Button>
+                  <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
+                    <DialogContent dividers>
+                      <h1>Posted Successfully!</h1>
+                    </DialogContent>
+                  </Dialog>
                 </Grid>
               </Grid>
             </Paper>
-            <pre>{JSON.stringify(values, 0, 2)}</pre>
+            {/* <pre>{JSON.stringify(values, 0, 2)}</pre> */}
           </form>
         )}
       />

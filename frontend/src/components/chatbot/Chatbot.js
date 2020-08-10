@@ -8,13 +8,13 @@ function Chatbot(props) {
     const theme = {
         background: "white",
         fontFamily: "Arial, Helvetica, sans-serif",
-        headerBgColor: "#00B2B2",
+        headerBgColor: "#3f51b5",
         headerFontColor: "#fff",
         headerFontSize: "25px",
-        botBubbleColor: "#00B2B2",
-        botFontColor: "#fff",
-        userBubbleColor: "#fff",
-        userFontColor: "#4c4c4c"
+        botBubbleColor: "#fff",
+        botFontColor: "#4c4c4c",
+        userBubbleColor: "#3f51b5",
+        userFontColor: "#fff"
        };
 
     const config = {
@@ -65,19 +65,29 @@ function Chatbot(props) {
                 <div>I suggest checking out the job search tab <Link to="/searchjobs">here</Link>!</div>
               ),
             asMessage: true,
-            trigger: "Done"
+            trigger: "Ask How to Help Again"
         },
         {
             id: "Suggest Creating Job Post",
             component: (
-                <div>I suggest creating a new job post over <Link to="/postjobs">here</Link>!</div>
+                <div>I suggest creating a new job post over <Link to="/postjobs" color="white">here</Link>!</div>
               ),
             asMessage: true,
-            trigger: "Done"
+            trigger: "Ask How to Help Again"
+        },
+        {
+          id: "Ask How to Help Again",
+          message: "Anything else I can help you with?",
+          trigger: "Waiting User Response"
+        },
+        {
+          id: "Waiting User Response",
+          user: true,
+          trigger: "Done",
         },
         {
           id: "Done",
-          message: "Alrighty then. Have a great day !!",
+          message: "Alrighty then. Have a great day!",
           end: true
         }
      ];
