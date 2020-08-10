@@ -6,61 +6,151 @@ CORS(app)
 
 jobs_data = [
 {
-  "company": "VMWare",
+  "company": "StarBucks",
   "location": "Palo Alto",
-  "jobdesc": "HR",
-  "skills": "Communication",
+  "jobdesc": "Store Supervisor",
+  "skills": "Cordial, multitasking",
   "tags": "Urgent req",
   "jobtype": [
     "fulltime",
+  ]
+},
+{
+  "company": "iTea",
+  "location": "New york",
+  "jobdesc": "Shift worker",
+  "skills": "",
+  "tags": "",
+  "jobtype": [
+    "parttime",
+  ]
+},
+{
+  "company": "Information Technology Services",
+  "location": "Los Angeles",
+  "jobdesc": "Student worker",
+  "skills": "customer facing experience",
+  "tags": "F1 visa status",
+  "jobtype": [
+    "fulltime",
+  ]
+},
+{
+  "company": "Sheng kee Bakery",
+  "location": "China",
+  "jobdesc": "Baker",
+  "skills": "Baking skills",
+  "tags": "Urgent req",
+  "jobtype": [
+    "fulltime",
+    "shortterm"
+  ]
+},
+{
+  "company": "Data Analyst",
+  "location": "Bangalore",
+  "jobdesc": "HR",
+  "skills": "Python,R",
+  "tags": "Masters",
+  "jobtype": [
+    "fulltime",
+    "remote"
+  ]
+}
+,
+{
+  "company": "First choice housing",
+  "location": "Florida",
+  "jobdesc": "Housing management assistant",
+  "skills": "Prompt",
+  "tags": "",
+  "jobtype": [
+    "fulltime",
+    "shortterm",
+    ""
+  ]
+},
+{
+  "company": "Domino's Pizza",
+  "location": "United Kingdom",
+  "jobdesc": "Store assistant",
+  "skills": "Good communication",
+  "tags": "friendly",
+  "jobtype": [
+    "fulltime",
+    "parttime"
+  ]
+},
+{
+  "company": "Office of Internation Services",
+  "location": "United Kingdom",
+  "jobdesc": "Backend administrator",
+  "skills": "Good communication",
+  "tags": "",
+  "jobtype": [
+    "fulltime",
+    "parttime"
+  ]
+},
+{
+  "company": "Wag!",
+  "location": "San Francisco",
+  "jobdesc": "Dog walker",
+  "skills": "Loves Pets",
+  "tags": "",
+  "jobtype": [
+    "parttime"
+  ]
+},
+{
+  "company": "Doordash",
+  "location": "San Jose",
+  "jobdesc": "Food delivery assistant",
+  "skills": "Driving, friendly",
+  "tags": "",
+  "jobtype": [
+    "parttime"
+  ]
+},
+{
+  "company": "Ralphs",
+  "location": "Michigan",
+  "jobdesc": "Supermarket delivery staff",
+  "skills": "Driving, friendly",
+  "tags": "",
+  "jobtype": [
     "parttime",
     "shortterm"
   ]
 },
 {
-  "company": "VMWare",
-  "location": "Palo Alto",
-  "jobdesc": "HR",
-  "skills": "Communication",
-  "tags": "Urgent req",
+  "company": "FastLearner Inc",
+  "location": "Remote",
+  "jobdesc": "English Language Trainer",
+  "skills": "Knows English",
+  "tags": "",
   "jobtype": [
-    "fulltime",
     "parttime",
     "shortterm"
   ]
 },
 {
-  "company": "VMWare",
-  "location": "Palo Alto",
-  "jobdesc": "HR",
-  "skills": "Communication",
-  "tags": "Urgent req",
+  "company": "Stony Brook",
+  "location": "New York",
+  "jobdesc": "Teaching Assistant",
+  "skills": "Master's in Computer Science",
+  "tags": "",
   "jobtype": [
-    "fulltime",
     "parttime",
-    "shortterm"
   ]
 },
 {
-  "company": "VMWare",
-  "location": "Palo Alto",
-  "jobdesc": "HR",
-  "skills": "Communication",
-  "tags": "Urgent req",
+  "company": "StayFit",
+  "location": "Remote",
+  "jobdesc": "Yoga instructor",
+  "skills": "certified instructor",
+  "tags": "",
   "jobtype": [
-    "fulltime",
-    "parttime",
-    "shortterm"
-  ]
-},
-{
-  "company": "VMWare",
-  "location": "Palo Alto",
-  "jobdesc": "HR",
-  "skills": "Communication",
-  "tags": "Urgent req",
-  "jobtype": [
-    "fulltime",
     "parttime",
     "shortterm"
   ]
