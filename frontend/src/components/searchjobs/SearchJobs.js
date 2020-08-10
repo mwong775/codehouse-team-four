@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import { AgGridReact } from 'ag-grid-react';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
@@ -16,13 +15,11 @@ export class SearchJob extends React.Component {
                 },{
                 headerName: "Price", field: "price", sortable: true, filter: true
             }],
-            rowData: [{
-                make: "Toyota", model: "Celica", price: 35000
-                },{
-                make: "Ford", model: "Mondeo", price: 32000
-                },{
-                make: "Porsche", model: "Boxter", price: 72000
-            }]
+            rowData: [],
+            style: {
+                width: '100%',
+                height: '100%'
+            },
         }
     }
 
@@ -34,12 +31,14 @@ export class SearchJob extends React.Component {
 
     render() {
         return (
-            <div className="ag-theme-alpine" style={ {height: '8000px', width: '1200px'} }>
+            <div className="ag-theme-alpine" style={this.state.style}>
                 <h1>List of Available Jobs</h1>
-                <AgGridReact
-                    columnDefs={this.state.columnDefs}
-                    rowData={this.state.rowData}>
-                </AgGridReact>
+                <div style={this.state.style}>
+                    <AgGridReact
+                        columnDefs={this.state.columnDefs}
+                        rowData={this.state.rowData}>
+                    </AgGridReact>
+                </div>
             </div>
         );
       }
