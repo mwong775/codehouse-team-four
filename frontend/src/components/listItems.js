@@ -73,7 +73,7 @@ export const secondaryListItems = (
                 <ListItemIcon>
                     <ForumIcon />
                 </ListItemIcon>
-                <ListItemText primary="Share N' Care :D" />
+                <ListItemText primary="Share and Care" />
             </ListItem>
         </Link>
     </div>
