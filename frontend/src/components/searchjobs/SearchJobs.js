@@ -60,7 +60,7 @@ export class SearchJob extends React.Component {
 
     render() {
         return (
-            <div className="ag-theme-alpine" style={{height: '400px', width: '80%', margin: 'auto'}}>
+            <div className="ag-theme-alpine" style={{height: '600px', width: '80%', margin: 'auto'}}>
                 <h1>List of Available Jobs</h1>
                 <AgGridReact
                     columnDefs={this.state.columnDefs}
