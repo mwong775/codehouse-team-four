@@ -4,6 +4,13 @@ import './Jobmap.css';
 import ReactSearchBox from 'react-search-box';
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 
+const data = [
+    { "name": "Tazaki Sushi", "coordinates": [37.761103, -122.498838], "position": "Server" },
+    { "name": "Starbucks", "coordinates": [37.762933, -122.488315], "position": "Barista" },
+    { "name": "Sheng Kee Bakery", "coordinates": [37.763410, -122.478988], "position": "Baker" },
+    { "name": "iTea", "coordinates": [37.763561, -122.481215], "position": "Bobarista" },
+]
+
 export class Jobmap extends React.Component {
 
     constructor(props) {
@@ -103,31 +110,15 @@ export class Jobmap extends React.Component {
                             <h3>Current Location</h3>
                      </Popup>
                     </Marker>
-                    <Marker position={[37.761103, -122.498838]}>
-                        <Popup>
-                            <h3>Tazaki Sushi</h3> Server
-                     </Popup>
-                    </Marker>
-                    <Marker position={[37.762933, -122.488315]}>
-                        <Popup>
-                            <h3>Starbucks</h3> Barista
-                     </Popup>
-                    </Marker>
-                    <Marker position={[37.763410, -122.478988]}>
-                        <Popup>
-                            <h3>Sheng Kee Bakery</h3> Baker
-                     </Popup>
-                    </Marker>
-                    <Marker position={[37.763561, -122.481215]}>
-                        <Popup>
-                            <h3>iTea</h3> Bobarista
-                     </Popup>
-                    </Marker>
-                    <Marker position={[37.763561, -122.481215]}>
-                        <Popup>
-                            <h3>iTea</h3> Bobarista
-                     </Popup>
-                    </Marker>
+                    {data.map((places) => {
+                        return (
+                            <Marker position={places.coordinates}>
+                            <Popup>
+                                <h3>{places.name}</h3> {places.position}
+                         </Popup>
+                        </Marker>
+                        )
+                    })}
                 </Map>
             </div>
         );
