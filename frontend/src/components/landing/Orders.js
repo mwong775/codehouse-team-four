@@ -14,11 +14,11 @@ function createData(id, country, cases, lastcases, lastdeath, transmission) {
 }
 
 const rows = [
-  createData(0, 'USA', '4,951,851', '53,893', '5719', 'Community transmission'),
+  createData(0, 'USA', '4,951,851', '53,893', '5,719', 'Community transmission'),
   createData(1, 'Brazil', '3,012,412', '49,970', '1,059', 'Community transmission'),
   createData(2, 'India', '2,215,074', '62,064', '905', 'Cluster of cases'),
-  createData(3, 'Russia', '892,654', '5,118', '1007', 'Cluster of cases'),
-  createData(4, 'South Africa', '559859', '6,671', '70', 'Community transmission'),
+  createData(3, 'Russia', '892,654', '5,118', '1,007', 'Cluster of cases'),
+  createData(4, 'South Africa', '559,859', '6,671', '70', 'Community transmission'),
 ];
 
 function preventDefault(event) {
