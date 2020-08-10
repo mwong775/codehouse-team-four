@@ -23,7 +23,7 @@ export default function Deposits() {
         19,718,030
       </Typography>
       <Typography color="textSecondary" className={classes.depositContext}>
-        on 10 August, 2020
+        on August 10, 2020
       </Typography>
       <div>
         <Link color="primary" href="#" onClick={preventDefault}>

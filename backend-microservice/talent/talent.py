@@ -7,84 +7,107 @@ CORS(app)
 talent_data = [
 {
   "firstName": "Tanvi",
-  "lastName": "raj",
+  "lastName": "Raj",
   "email": "tanvi@gmail.com",
   "location": "LA",
   "skills": "Driver",
   "tags": "jobs",
   "jobtype": [
-    "parttime",
-    "shortterm"
+    "part-time",
+    "short-term"
   ],
   "contactdetails": [
-    "tanvi@gmail.com",
-    "12"
+    "tanvi@gmail.com" ]
+},
+{
+  "firstName": "Sayli",
+  "lastName": "Karnik",
+  "email": "sayli@gmail.com",
+  "location": "NYC",
+  "skills": "Driver",
+  "tags": "jobs",
+  "jobtype": [
+    "full-time",
+  ],
+  "contactdetails": [
+    "sayli@gmail.com",
   ]
 },
 {
-  "firstName": "Tanvi",
-  "lastName": "raj",
-  "email": "tanvi@gmail.com",
-  "location": "LA",
+  "firstName": "Devika",
+  "lastName": "Shanbhag",
+  "email": "devika@gmail.com",
+  "location": "SEA",
   "skills": "Driver",
   "tags": "jobs",
   "jobtype": [
-    "parttime",
-    "shortterm"
+    "part-time",
+    "short-term"
   ],
   "contactdetails": [
-    "tanvi@gmail.com",
-    "12"
+    "devika@gmail.com",
   ]
 },
 {
-  "firstName": "Tanvi",
-  "lastName": "raj",
-  "email": "tanvi@gmail.com",
-  "location": "LA",
+  "firstName": "Melanie",
+  "lastName": "Wong",
+  "email": "melanie@gmail.com",
+  "location": "SF",
   "skills": "Driver",
   "tags": "jobs",
   "jobtype": [
-    "parttime",
-    "shortterm"
+    "full-time",
+    "short-term"
   ],
   "contactdetails": [
-    "tanvi@gmail.com",
-    "12"
+    "melanie@gmail.com",
   ]
 },
 {
-  "firstName": "Tanvi",
-  "lastName": "raj",
-  "email": "tanvi@gmail.com",
-  "location": "LA",
+  "firstName": "Virali",
+  "lastName": "Thakkar",
+  "email": "virali@gmail.com",
+  "location": "CA",
   "skills": "Driver",
   "tags": "jobs",
   "jobtype": [
-    "parttime",
-    "shortterm"
+    "full-time",
   ],
   "contactdetails": [
-    "tanvi@gmail.com",
-    "12"
+    "virali@gmail.com",
   ]
 },
 {
-  "firstName": "Tanvi",
-  "lastName": "raj",
-  "email": "tanvi@gmail.com",
-  "location": "LA",
+  "firstName": "Jonas",
+  "lastName": "Rosland",
+  "email": "jonas@gmail.com",
+  "location": "CA",
   "skills": "Driver",
   "tags": "jobs",
   "jobtype": [
-    "parttime",
-    "shortterm"
+    "full-time",
+    "short-term"
   ],
   "contactdetails": [
-    "tanvi@gmail.com",
-    "12"
+    "jonas@gmail.com",
+  ]
+},
+{
+  "firstName": "Katherine",
+  "lastName": "Nguyen",
+  "email": "katherine@gmail.com",
+  "location": "CA",
+  "skills": "Driver",
+  "tags": "jobs",
+  "jobtype": [
+    "full-time",
+  ],
+  "contactdetails": [
+    "katherine@gmail.com",
   ]
 }
+
+
 ]
 
 @app.route('/')

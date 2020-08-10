@@ -124,7 +124,7 @@ export const Dashboard = () => {
                             <MenuIcon />
                         </IconButton>
                         <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-                        BETTER TOGETHER
+                        Better Together
                         </Typography>
                         <IconButton color="inherit">
                                 <AccountCircleIcon />
