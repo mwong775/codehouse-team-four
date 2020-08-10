@@ -50,8 +50,6 @@ services:
     container_name: nginx
     build:
       context: ./nginx/
-      args:
-        - REACT_APP_HOST_IP_ADDRESS= ${IP_ADDRESS}
     restart: always
     ports:
       - 80:80       
@@ -66,7 +64,6 @@ services:
       - ./frontend/public:/usr/src/app/public
     environment:
       - NODE_ENV=development
-      - REACT_APP_HOST_IP_ADDRESS= ${IP_ADDRESS}
     links:
       - jobs
       - talent
