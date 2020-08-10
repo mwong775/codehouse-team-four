@@ -1,26 +1,72 @@
 version: '3'
 
 services:
-  flaskapp:
-    build: ./api
+  chat:
+    build: ./backend-microservice/chat
     expose:
       - 5000
-    ports:
+    ports: 
       - 5000:5000
     volumes:
-      - ./api:/usr/src/app
+      - ./backend-microservice/chat:/usr/src/app
     environment:
-      - FLASK_APP=app.py
+      - FLASK_APP=chat.py
       - FLASK_DEBUG=1
 
+  jobs:
+    build: ./backend-microservice/jobs
+    expose:
+      - 5001
+    ports: 
+      - 5001:5001
+    volumes:
+      - ./backend-microservice/jobs:/usr/src/app
+    environment:
+      - FLASK_APP=jobs.py
+      - FLASK_DEBUG=1
+  mapsearch:
+    build: ./backend-microservice/mapsearch
+    expose:
+      - 5002
+    ports: 
+      - 5002:5002 # expose ports - HOST:CONTAINER
+    volumes:
+      - ./backend-microservice/mapsearch:/usr/src/app
+    environment:
+      - FLASK_APP=mapsearch.py
+      - FLASK_DEBUG=1
+  talent:
+    build: ./backend-microservice/talent
+    expose:
+      - 5003
+    ports: 
+      - 5003:5003
+    volumes:
+      - ./backend-microservice/talent:/usr/src/app
+    environment:
+      - FLASK_APP=talent.py
+      - FLASK_DEBUG=1
+  nginx:
+    container_name: nginx
+    build:
+      context: ./nginx/
+      args:
+        - REACT_APP_HOST_IP_ADDRESS= ${IP_ADDRESS}
+    restart: always
+    ports:
+      - 80:80       
   reactapp:
     build: ./frontend
     expose:
       - 3000
     ports:
-      - 3000:3000
+      - 3000:3000 # expose ports - HOST:CONTAINER
     volumes:
       - ./frontend/src:/usr/src/app/src
       - ./frontend/public:/usr/src/app/public
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_HOST_IP_ADDRESS= ${IP_ADDRESS}
     links:
-      - "flaskapp:flaskapp"
+      - jobs
+      - talent

@@ -1,0 +1,102 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chat
+spec:
+  replicas: 2 # tells deployment to run 1 pods matching the template
+  selector:
+    matchLabels:
+      component: chat
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        component: chat
+    spec:
+      containers:
+      - name: chat
+        image: mwong775/codehouse-team-four_chat:latest
+        ports:
+        - containerPort: 5000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jobs
+spec:
+  replicas: 2 # tells deployment to run 1 pods matching the template
+  selector:
+    matchLabels:
+      component: jobs
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        component: jobs
+    spec:
+      containers:
+      - name: jobs
+        image: mwong775/codehouse-team-four_jobs:latest
+        ports:
+        - containerPort: 5001
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mapsearch
+spec:
+  replicas: 2 # tells deployment to run 1 pods matching the template
+  selector:
+    matchLabels:
+      component: mapsearch
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        component: mapsearch
+    spec:
+      containers:
+      - name: mapsearch
+        image: mwong775/codehouse-team-four_mapsearch:latest
+        ports:
+        - containerPort: 5002
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: talent
+spec:
+  replicas: 2 # tells deployment to run 1 pods matching the template
+  selector:
+    matchLabels:
+      component: talent
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        component: talent
+    spec:
+      containers:
+      - name: talent
+        image: mwong775/codehouse-team-four_talent:latest
+        ports:
+        - containerPort: 5003
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react
+      tier: ui
+  template:
+    metadata:
+      labels:
+        app: react
+        tier: ui
+    spec:
+      containers:
+        - name: react
+          image: mwong775/codehouse-team-four_reactapp:nginx
+          ports:
+          - containerPort: 80
+  

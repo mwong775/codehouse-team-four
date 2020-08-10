@@ -41,8 +41,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-let endPoint = "http://localhost:5000";
+let endPoint = "http://localhost:5000"; // `${process.env.REACT_APP_HOST_IP_ADDRESS}`
 let socket = io.connect(`${endPoint}`);
+console.log('chat endpoint', endPoint);
 
 // Functional component
 export const ShareNCare = () => {
