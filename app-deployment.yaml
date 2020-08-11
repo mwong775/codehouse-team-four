@@ -96,7 +96,7 @@ spec:
     spec:
       containers:
         - name: react
-          image: mwong775/codehouse-team-four_reactapp:nginx
+          image: mwong775/codehouse-team-four_reactapp:latest
           ports:
           - containerPort: 80
   
