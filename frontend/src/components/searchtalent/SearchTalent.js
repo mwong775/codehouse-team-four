@@ -66,6 +66,7 @@ export class SearchTalent extends React.Component {
                 <AgGridReact
                     columnDefs={this.state.columnDefs}
                     rowData={this.state.rowData}
+                    animateRows={true}
                     onGridReady={this.onGridReady}>
                 </AgGridReact>
             </div>
